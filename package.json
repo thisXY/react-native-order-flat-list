@@ -1,0 +1,16 @@
+{
+  "name": "react-native-order-list",
+  "version": "0.0.1",
+  "description": "react native order list,拖动排序列表",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:thisXY/react-native-order-list.git"
+  },
+  "homepage": "https://github.com/thisXY/react-native-order-list#readme",
+  "keywords": [
+    "order list"
+  ],
+  "license": "MIT",
+  "main": "src/index.js"
+}
