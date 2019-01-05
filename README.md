@@ -1,10 +1,10 @@
-# react-native-order-list
+# react-native-order-flat-list
 react-native拖动排序列表
 
 ### 安装
 
 ```bash
-npm install react-native-order-list --save
+npm install react-native-order-flat-list --save
 ```
 
 ### 属性
@@ -32,4 +32,4 @@ npm install react-native-order-list --save
 
 ### 源码
 
-https://github.com/thisXY/react-native-order-list
+https://github.com/thisXY/react-native-order-flat-list
