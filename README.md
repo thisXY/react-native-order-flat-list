@@ -9,10 +9,10 @@ npm install react-native-order-flat-list --save
 
 ### 属性
 
-| parameter              | type                                       | required | default | description                                                                                                                                                                                                                          | default                                                   |
-| :--------------------- | :----------------------------------------- | :------- | :-------| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------- |
-| style                  | oneOfType([number, object, array])         | no       |         | 组件样式                                                                                                                                                                                                                       |                                                           |
-| orderStyle             | oneOfType([number, object, array])         | no       |         | 排序样式                                                                                                                                                                                                                    | `true`                                                    |
+| parameter              | type                                       | required | default | description                                                                                                                                                                                                                        
+| :--------------------- | :----------------------------------------- | :------- | :-------| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| style                  | oneOfType([number, object, array])         | no       |         | 组件样式                                                                                                                                                                                                                     
+| orderStyle             | oneOfType([number, object, array])         | no       |         | 排序样式                                                                                                                                                                                                                   
 | orderWidth             | number                                     | no       | 44      | 排序按钮宽    
 | icon                   | number                                     | no       |         | 图标
 | iconStyle              | oneOfType([number, object, array])         | no       |         | 图标样式
@@ -21,7 +21,7 @@ npm install react-native-order-flat-list --save
 | orderKeyName           | string                                     | no       |         | 列表排序字段
 | isOrder                | bool                                       | no       | false   | 是否排序
 | renderFrameTime        | number                                     | no       | 20      | 渲染帧时间(ms;不建议太大或太小)
-| onOrder                | func                                       | yes      |         | 排序 {<br><br>orderKeys: 排序字段(,分隔;orderKeyName不为空时有值),<br><br>list: 列表(orderKeyName不为空时有值),<br><br>orderItemKey: 排序项字段(orderKeyName不为空时有值),<br><br>moveItemKey: 移动项字段(orderKeyName不为空时有值),<br><br>orderItemIndex: 排序项位置,<br><br>moveItemIndex: 移动项位置<br><br>}                                                                                                                                                                                                          | false                                                     |
+| onOrder                | func                                       | yes      |         | 排序 {<br><br>orderKeys: 排序字段(,分隔;orderKeyName不为空时有值),<br><br>list: 列表(orderKeyName不为空时有值),<br><br>orderItemKey: 排序项字段(orderKeyName不为空时有值),<br><br>moveItemKey: 移动项字段(orderKeyName不为空时有值),<br><br>orderItemIndex: 排序项位置,<br><br>moveItemIndex: 移动项位置<br><br>}                                                                                                                                                                                                      
 
 ### 注意
 属性props支持所有FlatList的props
