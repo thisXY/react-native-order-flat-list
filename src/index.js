@@ -21,7 +21,7 @@ class OrderFlatList extends React.Component {
     iconStyle: PropTypes.oneOfType([PropTypes.number, PropTypes.object, PropTypes.array]),
     // 获取列表ref
     getListRef: PropTypes.func,
-    // 子项高度
+    // 列表项高度
     itemHeight: PropTypes.number.isRequired,
     // 列表排序字段
     orderKeyName: PropTypes.string,
@@ -60,7 +60,6 @@ class OrderFlatList extends React.Component {
     getListRef: () => {},
     orderKeyName: '',
     isOrder: false,
-    onOrder: () => {},
     onScroll: () => {},
     renderFrameTime: 20,
   }
@@ -82,7 +81,7 @@ class OrderFlatList extends React.Component {
     };
     // 移动判断时间
     this.onPanResponderMoveTime = 0;
-    // 排序按钮左边距
+    // 排序按钮右边距
     this.orderButtonMarginRight = new Animated.Value(this._getOrderButtonMarginRight(props.isOrder));
 
     this.panResponder = PanResponder.create({
@@ -154,6 +153,11 @@ class OrderFlatList extends React.Component {
     return marginTop < 0 ? 0 : marginTop > maxMarginTop ? maxMarginTop : marginTop;
   }
 
+  /**
+   * 获取排序按钮右边距
+   * @param isOrder 是否排序
+   * @private
+   */
   _getOrderButtonMarginRight = isOrder => {
     return isOrder ? 0 : -1 * this.props.orderWidth;
   }
@@ -189,7 +193,7 @@ class OrderFlatList extends React.Component {
       const list = [];
       let orderKeys = '';
       const item = this.props.data[this.state.orderItem.index];
-      this.props.data.map((v, k) => {
+      this.props.data.forEach((v, k) => {
         if (k !== this.state.orderItem.index) {
           if (k === this.state.moveItem.index) {
             if (this.state.orderItem.index < this.state.moveItem.index) {
