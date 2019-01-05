@@ -1,6 +1,6 @@
 {
   "name": "react-native-order-flat-list",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "react native order list,拖动排序列表",
   "license": "MIT",
   "repository": {
@@ -13,5 +13,6 @@
     "拖动排序"
   ],
   "main": "src/index.js",
-  "author": "XY"
+  "author": "XY",
+  "email" : "543230241@qq.com"
 }
