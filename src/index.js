@@ -45,7 +45,7 @@ class OrderFlatList extends React.Component {
      *    moveItemIndex
      * }
      */
-    onOrder: PropTypes.func,
+    onOrder: PropTypes.func.isRequired,
     onScroll: PropTypes.func,
     // 渲染帧时间(ms) (优化性能)
     renderFrameTime: PropTypes.number,
@@ -79,6 +79,8 @@ class OrderFlatList extends React.Component {
       // 当前移动上边距
       moveItemMarginTop: 0,
     };
+    // 是否准备排序
+    this.isReadyOrder = false;
     // 移动判断时间
     this.onPanResponderMoveTime = 0;
     // 排序按钮右边距
@@ -88,11 +90,13 @@ class OrderFlatList extends React.Component {
       onStartShouldSetPanResponderCapture: () => true,
 
       onPanResponderGrant: evt => {
+        // 准备排序
+        this.isReadyOrder = true;
         // 获取当前排序子项
         const evtPageY = evt.nativeEvent.pageY;
         UIManager.measure(findNodeHandle(this._listRef), (x, y, width, height, pageX, pageY) => {
           const index = Math.ceil((evtPageY - pageY + this.state.contentOffsetY) / this.props.itemHeight) - 1;
-          if (index < this.props.data.length) {
+          if (index < this.props.data.length && this.isReadyOrder) {
             this.setState({
               isOrder: true,
               orderItem: { item: this.props.data[index], index },
@@ -111,6 +115,7 @@ class OrderFlatList extends React.Component {
         // 获取当前移动子项
         const evtPageY = evt.nativeEvent.pageY;
         UIManager.measure(findNodeHandle(this._listRef), (x, y, width, height, pageX, pageY) => {
+          if (!this.isReadyOrder) return;
           let index = Math.ceil((evtPageY - pageY + this.state.contentOffsetY) / this.props.itemHeight) - 1;
           index = index >= this.props.data.length ? this.props.data.length - 1 : index < 0 ? 0 : index;
           this.setState({
@@ -188,7 +193,7 @@ class OrderFlatList extends React.Component {
    * 排序
    */
   _onOrder = () => {
-    this.setState({ isOrder: false });
+    this.isReadyOrder = false;
     if (this.state.orderItem.index !== this.state.moveItem.index) {
       const list = [];
       let orderKeys = '';
@@ -231,6 +236,14 @@ class OrderFlatList extends React.Component {
         moveItemIndex: this.state.moveItem.index,
       });
     }
+
+    // 重置
+    this.setState({
+      isOrder: false,
+      orderItem: { item: {}, index: 0 },
+      moveItem: { item: {}, index: 0 },
+      moveItemMarginTop: 0,
+    });
   }
 
   render() {
