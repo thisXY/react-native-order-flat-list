@@ -1,5 +1,5 @@
 # react-native-order-flat-list
-react-native拖动排序列表
+你可以通过手势上下拖动自由地排序列表
 
 ### 安装
 

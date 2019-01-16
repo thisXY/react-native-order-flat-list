@@ -1,7 +1,7 @@
 {
   "name": "react-native-order-flat-list",
-  "version": "1.0.4",
-  "description": "react native order list,拖动排序列表",
+  "version": "1.0.5",
+  "description": "你可以通过手势上下拖动自由地排序列表",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -9,10 +9,13 @@
   },
   "homepage": "https://github.com/thisXY/react-native-order-flat-list#readme",
   "keywords": [
-    "order list",
+    "react native order list",
     "拖动排序"
   ],
   "main": "src/index.js",
   "author": "XY",
-  "email" : "543230241@qq.com"
+  "email": "543230241@qq.com",
+  "dependencies": {
+    "prop-types": "^15.6.2"
+  }
 }
