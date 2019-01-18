@@ -1,4 +1,8 @@
 # react-native-order-flat-list
+[![Platform](https://img.shields.io/badge/platform-react--native-lightgrey.svg)](http://facebook.github.io/react-native/)
+[![npm version](http://img.shields.io/npm/v/react-native-order-flat-list.svg)](https://www.npmjs.com/package/react-native-order-flat-list)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/thisXY/react-native-order-flat-list/master/LICENSE)
+
 你可以通过手势上下拖动自由地排序列表
 
 ### 安装
@@ -23,13 +27,12 @@ npm install react-native-order-flat-list --save
 | renderFrameTime        | number                                     | no       | 20      | 渲染帧时间(ms;不建议太大或太小)
 | onOrder                | func                                       | yes      |         | 排序 {<br><br>orderKeys: 排序字段(,分隔;orderKeyName不为空时有值),<br><br>list: 列表,<br><br>orderItemKey: 排序项字段(orderKeyName不为空时有值),<br><br>moveItemKey: 移动项字段(orderKeyName不为空时有值),<br><br>orderItemIndex: 排序项位置,<br><br>moveItemIndex: 移动项位置<br><br>}                                                                                                                                                                                                      
 
-### 注意
 属性props支持所有FlatList的props
-<br>
-你应该依赖props.onOrder({orderKeys, list, orderItemKey, moveItemKey, orderItemIndex, moveItemIndex})的回调参数调整props.data使其发生排序改变并操作你的后端api
-<br>
-你可以选择在即将提交到后端时替换你的data数据使其列表即时发生改变,这样不会有卡顿或迟缓。比如在reducer的`REQUESTING_${ACTION_TYPES.ACTION_TYPE}`里
+### 注意
+* 你应该依赖props.onOrder({orderKeys, list, orderItemKey, moveItemKey, orderItemIndex, moveItemIndex})的回调参数调整props.data使其发生排序改变并操作你的后端api
+
+* 你可以选择在即将提交到后端时替换你的data数据使其列表即时发生改变,这样不会有卡顿或迟缓。比如在reducer的`REQUESTING_${ACTION_TYPES.ACTION_TYPE}`里
 
 ### 源码
 
-https://github.com/thisXY/react-native-order-flat-list
+> https://github.com/thisXY/react-native-order-flat-list
