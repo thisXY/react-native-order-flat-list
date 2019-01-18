@@ -87,9 +87,11 @@ class OrderFlatList extends React.Component {
     this.orderButtonMarginRight = new Animated.Value(this._getOrderButtonMarginRight(props.isOrder));
 
     this.panResponder = PanResponder.create({
-      onStartShouldSetPanResponderCapture: () => true,
+      onStartShouldSetPanResponder: () => true,
 
-      onPanResponderGrant: evt => {
+      onStartShouldSetPanResponderCapture: () => false,
+
+      onPanResponderStart: evt => {
         // 准备排序
         this.isReadyOrder = true;
         // 获取当前排序子项
@@ -125,11 +127,9 @@ class OrderFlatList extends React.Component {
         });
       },
 
-      onPanResponderRelease: () => {
-        this._onOrder();
-      },
+      onPanResponderTerminationRequest: () => false,
 
-      onPanResponderTerminate: () => {
+      onPanResponderRelease: () => {
         this._onOrder();
       },
     });
