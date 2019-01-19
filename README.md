@@ -10,6 +10,8 @@
 ```bash
 npm install react-native-order-flat-list --save
 ```
+### 示例
+![screenshot](https://raw.github.com/thisXY/react-native-order-flat-list/master/demo/demo.gif)
 
 ### 属性
 
